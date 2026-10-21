@@ -1,0 +1,61 @@
+/* Phone-first app shell; on wide screens it shows as a centred phone-width column */
+.layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--card);
+}
+
+@media (min-width: 520px) {
+  .layout {
+    margin: 24px auto;
+    min-height: calc(100vh - 48px);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
+  }
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #13202e;
+  color: #fff;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.tabs {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+.tabs :global(a) {
+  flex: 1;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.tabs :global(a.active) {
+  color: var(--accent);
+  font-weight: 600;
+  box-shadow: inset 0 3px 0 var(--accent);
+}

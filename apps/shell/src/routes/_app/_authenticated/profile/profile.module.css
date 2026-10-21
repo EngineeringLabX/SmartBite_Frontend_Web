@@ -1,0 +1,9 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sections {
+  display: grid;
+  gap: 16px;
+}

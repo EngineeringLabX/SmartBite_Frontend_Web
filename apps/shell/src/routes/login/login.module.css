@@ -1,0 +1,262 @@
+.page {
+  --login-accent: #0ea5e9;
+  --login-accent-hover: #0284c7;
+  --login-surface: #ffffff;
+  --login-text: #2a3547;
+  --login-muted: #7c8fac;
+  --login-border: #e5eaef;
+  --login-brand-bg: #13202e;
+  --login-error: #c2410c;
+
+  /* Always the light design, whatever the browser theme — also keeps inputs/checkboxes light */
+  color-scheme: light;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  color: var(--login-text);
+  /* Shared backdrop from @smartbite/ui tokens */
+  background: var(--backdrop);
+}
+
+.card {
+  width: 100%;
+  max-width: 1180px;
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--login-surface);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
+}
+
+/* ---------- Left brand panel ---------- */
+
+.brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: var(--login-brand-bg);
+  color: #fff;
+}
+
+.shapes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brandContent {
+  position: relative;
+  padding: 0 clamp(32px, 6vw, 88px) 60px;
+}
+
+.brandContent h2 {
+  margin: 0 0 16px;
+  font-size: 2.1rem;
+  line-height: 1.2;
+}
+
+.brandContent p {
+  margin: 0 0 28px;
+  max-width: 260px;
+  color: #c6d2e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.learnMore {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--login-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.learnMore:hover {
+  background: var(--login-accent-hover);
+}
+
+/* ---------- Right sign-in panel ---------- */
+
+.formPanel {
+  display: grid;
+  place-items: center;
+  padding: 48px 24px;
+}
+
+.formInner {
+  width: 100%;
+  max-width: 360px;
+}
+
+.logo {
+  color: var(--login-accent);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  margin: 8px 0 28px;
+  color: var(--login-muted);
+  font-size: 0.875rem;
+}
+
+.social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--login-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--login-text);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.socialButton:hover {
+  border-color: var(--login-accent);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  font-size: 0.875rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--login-border);
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field input {
+  padding: 10px 16px;
+  border: 1px solid var(--login-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--login-text);
+  font: inherit;
+  font-weight: 400;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--login-accent);
+  box-shadow: 0 0 0 3px rgb(14 165 233 / 0.15);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--login-muted);
+}
+
+.remember input {
+  accent-color: var(--login-accent);
+}
+
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--login-accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.submit {
+  margin-top: 4px;
+  padding: 11px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--login-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--login-accent-hover);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--login-error);
+}
+
+.notice {
+  color: var(--login-muted);
+}
+
+.footer {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--login-accent);
+}
+
+/* Phones and narrow tablets: drop the brand panel */
+@media (max-width: 860px) {
+  .card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .brand {
+    display: none;
+  }
+}

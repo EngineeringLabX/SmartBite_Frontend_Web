@@ -1,0 +1,50 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "smartbite-shell",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:shell"
+      ],
+      "port": 5180
+    },
+    {
+      "name": "smartbite-vendor",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:vendor"
+      ],
+      "port": 5182
+    },
+    {
+      "name": "smartbite-kitchen",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:kitchen"
+      ],
+      "port": 5183
+    },
+    {
+      "name": "smartbite-delivery",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:delivery"
+      ],
+      "port": 5184
+    },
+    {
+      "name": "smartbite-admin",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:admin"
+      ],
+      "port": 5185
+    }
+  ]
+}

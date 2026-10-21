@@ -1,0 +1,26 @@
+/* Dev-only user switcher — a CSS Module so it's dropped from production along with the component */
+.switcher {
+  position: fixed;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 10px;
+  border-radius: 999px;
+  background: #fde047;
+  color: #422006;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+}
+
+.switcher select {
+  font: inherit;
+  font-weight: 400;
+  border: 0;
+  border-radius: 999px;
+  padding: 2px 6px;
+}

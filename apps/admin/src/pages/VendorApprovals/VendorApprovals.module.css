@@ -1,0 +1,67 @@
+.heading {
+  margin: 0;
+}
+
+.muted {
+  margin: 4px 0 24px;
+  color: var(--muted);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.approve,
+.reject {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.approve {
+  border: 0;
+  background: #0ea5e9;
+  color: #fff;
+}
+
+.reject {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+}
+
+.approved {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.rejected {
+  color: #b91c1c;
+  font-weight: 600;
+}

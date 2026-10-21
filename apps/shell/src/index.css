@@ -1,0 +1,86 @@
+@import '@smartbite/ui/tokens.css';
+
+a { color: var(--accent); text-decoration: none; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 24px;
+  color: var(--on-backdrop);
+}
+.header nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.header nav a { color: var(--on-backdrop); }
+.header nav a.active:not(.button) { color: #fff; font-weight: 600; }
+.header .muted { color: var(--on-backdrop-muted); }
+.brand { font-weight: 700; font-size: 1.2rem; color: #fff !important; }
+
+/* Page content sits on a white panel over the backdrop, like the login card */
+.container {
+  max-width: 1040px;
+  margin: 8px auto 40px;
+  padding: 32px clamp(16px, 4vw, 40px);
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
+}
+
+@media (max-width: 1072px) {
+  .container { margin-inline: 16px; }
+}
+.narrow { max-width: 420px; margin: 0 auto; }
+.muted { color: var(--muted); }
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff !important;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.hero { padding: 48px 0; }
+.hero h1 { font-size: 2.5rem; margin: 0 0 12px; }
+.actions { display: flex; gap: 20px; align-items: center; margin-top: 24px; flex-wrap: wrap; }
+
+.grid { list-style: none; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+
+.form { display: grid; gap: 16px; }
+.form label { display: grid; gap: 6px; font-size: 0.9rem; }
+.form label.checkbox { display: flex; gap: 8px; align-items: flex-start; }
+.form input:not([type='checkbox']), .form select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  font: inherit;
+}
+
+.error { color: var(--warn-fg); }
+
+/* Signed-in user + sign out, on the dark backdrop */
+.account-menu { display: flex; align-items: center; gap: 12px; color: var(--on-backdrop); }
+.account-menu small { display: block; font-size: 0.75rem; color: var(--on-backdrop-muted); }
+.account-menu button {
+  padding: 6px 12px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.account-menu button:hover { background: rgb(255 255 255 / 0.1); }
+
+.backdrop-link { color: var(--on-backdrop); }
+
+.route-error { padding: 24px; border-radius: 16px; background: var(--card); color: var(--fg); }
+.route-error h2 { margin: 0 0 8px; font-size: 1.1rem; }
+.route-error p { margin: 0; color: var(--muted); }

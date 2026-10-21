@@ -1,0 +1,11 @@
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.title {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}

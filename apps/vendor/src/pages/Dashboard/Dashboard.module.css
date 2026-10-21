@@ -1,0 +1,38 @@
+.heading {
+  margin: 0;
+}
+
+.muted {
+  margin: 4px 0 24px;
+  color: var(--muted);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--border);
+  font-size: 0.8rem;
+}

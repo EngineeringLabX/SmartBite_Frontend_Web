@@ -1,0 +1,35 @@
+/* SmartBite design tokens — import once per app: import '@smartbite/ui/tokens.css' */
+:root {
+  --bg: #fafaf7;
+  --fg: #1d2420;
+  --muted: #5f6b64;
+  --accent: #2f8f5b;
+  --card: #ffffff;
+  --border: #e3e6e1;
+  --warn-bg: #fdf0e6;
+  --warn-fg: #a14d12;
+
+  /* Page backdrop for every app: black at the top fading into violet, magenta glow bottom-right */
+  --backdrop:
+    radial-gradient(ellipse 60% 55% at 100% 100%, #d42cff 0%, rgb(212 44 255 / 0) 100%),
+    radial-gradient(ellipse 70% 60% at 35% 110%, #4c1fd6 0%, rgb(76 31 214 / 0) 100%),
+    linear-gradient(180deg, #000 0%, #07020f 40%, #1c0748 100%);
+  --on-backdrop: #e6ebf2;
+  --on-backdrop-muted: #a9b4c8;
+
+  /* One look regardless of the browser's light/dark setting (keeps inputs and checkboxes light too) */
+  color-scheme: light;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--fg);
+  background-color: #000;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--backdrop);
+  /* Keep the gradient in place on long pages instead of repeating it */
+  background-attachment: fixed;
+}
