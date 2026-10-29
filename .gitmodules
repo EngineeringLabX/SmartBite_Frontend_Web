@@ -1,0 +1,4 @@
+[submodule "SmartBite_fe_CustomerProfile"]
+	path = SmartBite_fe_CustomerProfile
+	url = https://github.com/EngineeringLabX/SmartBite_fe_CustomerProfile.git
+	branch = main
