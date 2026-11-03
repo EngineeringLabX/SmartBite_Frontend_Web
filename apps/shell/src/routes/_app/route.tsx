@@ -1,5 +1,5 @@
 import { useAuth } from '@smartbite/auth'
-import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
+import { createFileRoute, Link, Outlet, useMatchRoute } from '@tanstack/react-router'
 import { AccountMenu } from '../../components/AccountMenu'
 import { APP_NAME } from '../../constants'
 
@@ -10,6 +10,10 @@ export const Route = createFileRoute('/_app')({
 
 function AppLayout() {
   const { user, hasRole } = useAuth()
+  const matchRoute = useMatchRoute()
+
+  // The wellness profile brings its own light header and footer (see WellnessShell)
+  if (matchRoute({ to: '/profile' })) return <Outlet />
 
   return (
     <>
