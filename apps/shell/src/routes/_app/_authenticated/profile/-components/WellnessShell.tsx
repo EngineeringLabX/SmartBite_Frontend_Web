@@ -76,6 +76,14 @@ export function WellnessShell({ children }: { children: ReactNode }) {
               <Icon name="verified_user" size={16} className={styles.securedIcon} />
               Secured by Entra ID
             </span>
+            <Link
+              to="/cart"
+              className={styles.bell}
+              activeProps={{ className: styles.bellActive }}
+              aria-label="Dinner tray"
+            >
+              <Icon name="shopping_bag" />
+            </Link>
             <button type="button" className={styles.bell} aria-label="Notifications">
               <Icon name="notifications" />
               <span className={styles.bellDot} />
