@@ -26,6 +26,7 @@ import { Route as AppRegisterIndexRouteImport } from './routes/_app/register/ind
 import { Route as AdminVendorsIndexRouteImport } from './routes/admin/vendors/index'
 import { Route as DeliveryEarningsIndexRouteImport } from './routes/delivery/earnings/index'
 import { Route as VendorMenuIndexRouteImport } from './routes/vendor/menu/index'
+import { Route as AppAuthenticatedCartIndexRouteImport } from './routes/_app/_authenticated/cart/index'
 import { Route as AppAuthenticatedProfileIndexRouteImport } from './routes/_app/_authenticated/profile/index'
 
 const AppRouteRoute = AppRouteRouteImport.update({
@@ -111,6 +112,12 @@ const VendorMenuIndexRoute = VendorMenuIndexRouteImport.update({
   path: '/menu/',
   getParentRoute: () => VendorRouteRoute,
 } as any)
+const AppAuthenticatedCartIndexRoute =
+  AppAuthenticatedCartIndexRouteImport.update({
+    id: '/cart/',
+    path: '/cart/',
+    getParentRoute: () => AppAuthenticatedRouteRoute,
+  } as any)
 const AppAuthenticatedProfileIndexRoute =
   AppAuthenticatedProfileIndexRouteImport.update({
     id: '/profile/',
@@ -134,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/admin/vendors/': typeof AdminVendorsIndexRoute
   '/delivery/earnings/': typeof DeliveryEarningsIndexRoute
   '/vendor/menu/': typeof VendorMenuIndexRoute
+  '/cart/': typeof AppAuthenticatedCartIndexRoute
   '/profile/': typeof AppAuthenticatedProfileIndexRoute
 }
 export interface FileRoutesByTo {
@@ -148,6 +156,7 @@ export interface FileRoutesByTo {
   '/admin/vendors': typeof AdminVendorsIndexRoute
   '/delivery/earnings': typeof DeliveryEarningsIndexRoute
   '/vendor/menu': typeof VendorMenuIndexRoute
+  '/cart': typeof AppAuthenticatedCartIndexRoute
   '/profile': typeof AppAuthenticatedProfileIndexRoute
 }
 export interface FileRoutesById {
@@ -169,6 +178,7 @@ export interface FileRoutesById {
   '/admin/vendors/': typeof AdminVendorsIndexRoute
   '/delivery/earnings/': typeof DeliveryEarningsIndexRoute
   '/vendor/menu/': typeof VendorMenuIndexRoute
+  '/_app/_authenticated/cart/': typeof AppAuthenticatedCartIndexRoute
   '/_app/_authenticated/profile/': typeof AppAuthenticatedProfileIndexRoute
 }
 export interface FileRouteTypes {
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/admin/vendors/'
     | '/delivery/earnings/'
     | '/vendor/menu/'
+    | '/cart/'
     | '/profile/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/admin/vendors'
     | '/delivery/earnings'
     | '/vendor/menu'
+    | '/cart'
     | '/profile'
   id:
     | '__root__'
@@ -223,6 +235,7 @@ export interface FileRouteTypes {
     | '/admin/vendors/'
     | '/delivery/earnings/'
     | '/vendor/menu/'
+    | '/_app/_authenticated/cart/'
     | '/_app/_authenticated/profile/'
   fileRoutesById: FileRoutesById
 }
@@ -356,6 +369,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VendorMenuIndexRouteImport
       parentRoute: typeof VendorRouteRoute
     }
+    '/_app/_authenticated/cart/': {
+      id: '/_app/_authenticated/cart/'
+      path: '/cart'
+      fullPath: '/cart/'
+      preLoaderRoute: typeof AppAuthenticatedCartIndexRouteImport
+      parentRoute: typeof AppAuthenticatedRouteRoute
+    }
     '/_app/_authenticated/profile/': {
       id: '/_app/_authenticated/profile/'
       path: '/profile'
@@ -367,10 +387,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppAuthenticatedRouteRouteChildren {
+  AppAuthenticatedCartIndexRoute: typeof AppAuthenticatedCartIndexRoute
   AppAuthenticatedProfileIndexRoute: typeof AppAuthenticatedProfileIndexRoute
 }
 
 const AppAuthenticatedRouteRouteChildren: AppAuthenticatedRouteRouteChildren = {
+  AppAuthenticatedCartIndexRoute: AppAuthenticatedCartIndexRoute,
   AppAuthenticatedProfileIndexRoute: AppAuthenticatedProfileIndexRoute,
 }
 

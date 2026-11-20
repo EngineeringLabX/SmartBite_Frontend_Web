@@ -12,8 +12,8 @@ function AppLayout() {
   const { user, hasRole } = useAuth()
   const matchRoute = useMatchRoute()
 
-  // The wellness profile brings its own light header and footer (see WellnessShell)
-  if (matchRoute({ to: '/profile' })) return <Outlet />
+  // The wellness profile and cart bring their own light header and footer (see WellnessShell)
+  if (matchRoute({ to: '/profile' }) || matchRoute({ to: '/cart' })) return <Outlet />
 
   return (
     <>

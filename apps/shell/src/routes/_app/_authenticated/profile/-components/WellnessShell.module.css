@@ -191,6 +191,12 @@ a.navActive:hover {
   color: var(--p-fg);
 }
 
+.bellActive,
+.bellActive:hover {
+  background: var(--p-container);
+  color: var(--p-primary);
+}
+
 .bellDot {
   position: absolute;
   top: 10px;
