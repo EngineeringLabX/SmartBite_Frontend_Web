@@ -1,79 +1,70 @@
+import { useAuth } from '@smartbite/auth'
 import { useState } from 'react'
 import styles from './KitchenDisplay.module.css'
-
-type TicketStatus = 'New' | 'Preparing' | 'Ready'
-
-type Ticket = {
-  id: string
-  items: string[]
-  channel: 'Delivery' | 'Pickup'
-  minutesAgo: number
-  status: TicketStatus
-  allergyAlert?: string
-}
-
-// Mock data until the kitchen operations API (Epic 5) is available
-const INITIAL_TICKETS: Ticket[] = [
-  { id: '1044', items: ['Salmon Poke', 'Coconut Chia Pudding'], channel: 'Pickup', minutesAgo: 1, status: 'New', allergyAlert: 'Severe: tree nuts' },
-  { id: '1042', items: ['Quinoa Buddha Bowl ×2'], channel: 'Delivery', minutesAgo: 4, status: 'New', allergyAlert: 'No sesame' },
-  { id: '1041', items: ['Lentil Dhal & Brown Rice'], channel: 'Delivery', minutesAgo: 9, status: 'Preparing' },
-  { id: '1040', items: ['Grilled Chicken Salad', 'Jackfruit Curry & Red Rice'], channel: 'Delivery', minutesAgo: 14, status: 'Preparing', allergyAlert: 'No dairy' },
-  { id: '1039', items: ['Grilled Chicken Salad'], channel: 'Pickup', minutesAgo: 18, status: 'Ready' },
-]
-
-const COLUMNS: { status: TicketStatus; action: string }[] = [
-  { status: 'New', action: 'Start cooking' },
-  { status: 'Preparing', action: 'Mark ready' },
-  { status: 'Ready', action: 'Handed over' },
-]
-
-const NEXT: Record<TicketStatus, TicketStatus | null> = { New: 'Preparing', Preparing: 'Ready', Ready: null }
+import { Icon } from './Icon'
+import { KitchenFooter } from './KitchenFooter'
+import { KitchenHeader } from './KitchenHeader'
+import { INITIAL_TICKETS, type Ticket } from './data'
+import { OrderQueue } from './OrderQueue'
+import { PerformanceSummary } from './PerformanceSummary'
+import { SafeCoreBar } from './SafeCoreBar'
+import { StatCards } from './StatCards'
 
 export default function KitchenDisplay() {
+  // Local only for now — will sync with the kitchen operations API
   const [tickets, setTickets] = useState(INITIAL_TICKETS)
 
-  // Local only for now — will sync with the kitchen operations API
-  const advance = (id: string) =>
-    setTickets((all) =>
-      all.flatMap((t) => {
-        if (t.id !== id) return [t]
-        const next = NEXT[t.status]
-        return next ? [{ ...t, status: next }] : []
-      }),
-    )
+  const updateTicket = (id: string, change: (ticket: Ticket) => Ticket) =>
+    setTickets((all) => all.map((t) => (t.id === id ? change(t) : t)))
+
+  const accept = (id: string) => updateTicket(id, (t) => ({ ...t, status: 'Preparing', cookedMinutes: 0 }))
+  const plated = (id: string) => updateTicket(id, (t) => ({ ...t, status: 'Ready', cookedMinutes: t.prepMinutes }))
+  const decline = (id: string) => setTickets((all) => all.filter((t) => t.id !== id))
 
   return (
-    <div className={styles.board}>
-      {COLUMNS.map(({ status, action }) => {
-        const column = tickets.filter((t) => t.status === status)
-        return (
-          <section key={status} className={styles.column}>
-            <h2 className={styles.columnTitle}>
-              {status} <span className={styles.count}>{column.length}</span>
-            </h2>
-            {column.map((ticket) => (
-              <article key={ticket.id} className={`${styles.ticket} ${ticket.allergyAlert ? styles.alert : ''}`}>
-                <header className={styles.ticketHeader}>
-                  <strong>#{ticket.id}</strong>
-                  <span>
-                    {ticket.channel} · {ticket.minutesAgo} min
-                  </span>
-                </header>
-                {ticket.allergyAlert && <p className={styles.allergy}>⚠ {ticket.allergyAlert}</p>}
-                <ul className={styles.items}>
-                  {ticket.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <button type="button" className={styles.action} onClick={() => advance(ticket.id)}>
-                  {action}
-                </button>
-              </article>
-            ))}
-            {column.length === 0 && <p className={styles.empty}>No orders</p>}
-          </section>
-        )
-      })}
+    <div className={styles.dashboard}>
+      <KitchenHeader />
+
+      <main className={styles.main}>
+        <Hero />
+        <StatCards />
+        <PerformanceSummary />
+        <OrderQueue tickets={tickets} onAccept={accept} onDecline={decline} onPlated={plated} />
+        <SafeCoreBar />
+      </main>
+
+      <KitchenFooter />
     </div>
+  )
+}
+
+function Hero() {
+  const { user } = useAuth()
+
+  return (
+    <section className={styles.hero}>
+      <div>
+        <h1 className={styles.heroTitle}>
+          Welcome back, <span className={styles.heroName}>{user?.name ?? 'Demo Restaurant'}</span>
+        </h1>
+        <p className={styles.heroSub}>
+          Here&apos;s how your kitchen is doing today across orders, allergen safety checks, and culinary workflows.
+        </p>
+      </div>
+      <div className={styles.heroActions}>
+        <button type="button" className={styles.buttonOutline}>
+          <Icon name="print" size={18} />
+          Print All Tickets
+        </button>
+        <button type="button" className={styles.buttonOutline}>
+          <Icon name="tune" size={18} />
+          Station Routing
+        </button>
+        <button type="button" className={styles.buttonPrimaryLarge}>
+          <Icon name="add_circle" size={18} />
+          New Walk-in Order
+        </button>
+      </div>
+    </section>
   )
 }
