@@ -1,0 +1,620 @@
+/* Colour tokens (--p-*) are defined on SetupShell */
+
+.primaryText { color: var(--p-primary); }
+.tertiaryText { color: var(--p-tertiary); }
+.errorText { color: var(--p-error); }
+
+.overline {
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  border-radius: 24px;
+  background: var(--p-card);
+  box-shadow: 0 20px 40px -15px rgb(2 6 23 / 0.08);
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.stageChip {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--p-primary-fixed);
+  color: var(--p-on-primary-fixed);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stageCount {
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.lead {
+  max-width: 640px;
+  margin: 4px 0 0;
+  color: var(--p-muted);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+  min-width: 200px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--p-low);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.meterHead {
+  display: flex;
+  justify-content: space-between;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.meterHead strong {
+  color: var(--p-primary);
+}
+
+.meterTrack {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--p-high);
+  overflow: hidden;
+}
+
+.meterTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--p-primary);
+  transition: width 0.5s;
+}
+
+.meterEnds {
+  display: flex;
+  justify-content: space-between;
+  color: var(--p-outline);
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+/* ---------- Section heading ---------- */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+/* ---------- Diet cards ---------- */
+
+.dietGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dietCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--p-card);
+  box-shadow: 0 0 0 1px #e2e8f0, 0 1px 2px rgb(0 0 0 / 0.05);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.dietCard:hover {
+  box-shadow: 0 0 0 1px #38bdf8, 0 4px 12px rgb(2 132 199 / 0.08);
+}
+
+.dietCard:focus-visible {
+  outline: 3px solid var(--p-primary-fixed);
+  outline-offset: 2px;
+}
+
+.dietCardOn,
+.dietCardOn:hover {
+  background: rgb(0 97 148 / 0.04);
+  box-shadow: 0 0 0 2px var(--p-primary), 0 4px 12px rgb(2 132 199 / 0.08);
+}
+
+.dietIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--p-low);
+  color: var(--p-muted);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dietIcon-primary {
+  background: var(--p-primary-fixed);
+  color: var(--p-primary);
+}
+
+.dietIcon-tertiary {
+  background: var(--p-tertiary-container);
+  color: #fff;
+}
+
+.dietText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.dietName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.dietBadge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.dietBadge-primary {
+  background: var(--p-secondary-container);
+  color: var(--p-on-secondary-fixed);
+}
+
+.dietBadge-tertiary {
+  background: var(--p-tertiary-fixed);
+  color: var(--p-on-tertiary-fixed);
+}
+
+.dietDescription {
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--p-high);
+  color: transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dietCardOn .check {
+  background: var(--p-primary);
+  color: #fff;
+}
+
+/* ---------- Constraints ---------- */
+
+.constraints {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--p-low);
+}
+
+.engineChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.controlGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.controlHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.controlLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.controlValue {
+  flex-shrink: 0;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.sodiumValue {
+  padding: 0 8px;
+  border-radius: 6px;
+  background: rgb(204 229 255 / 0.5);
+  color: var(--p-primary);
+}
+
+.controlHint {
+  margin: 0;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--p-container);
+}
+
+.segmented button {
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.segmented button:hover {
+  color: var(--p-fg);
+}
+
+.segmented .segmentOn,
+.segmented .segmentOn:hover {
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  color: var(--p-primary);
+  font-weight: 700;
+}
+
+.slider {
+  width: 100%;
+  margin: 0 0 8px;
+  accent-color: var(--p-primary);
+  cursor: pointer;
+}
+
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.spice {
+  display: flex;
+  gap: 4px;
+  padding-top: 4px;
+}
+
+.spice button {
+  flex: 1;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--p-container);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.spice button:hover {
+  background: var(--p-high);
+}
+
+.spice .spiceOn,
+.spice .spiceOn:hover {
+  background: var(--p-error);
+}
+
+.spice button:focus-visible,
+.segmented button:focus-visible {
+  outline: 2px solid var(--p-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- AI banner ---------- */
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--p-container);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.bannerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--p-primary);
+  color: #fff;
+  box-shadow: 0 4px 8px rgb(0 97 148 / 0.25);
+}
+
+.bannerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.bannerHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-bottom: 4px;
+}
+
+.bannerHead h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.bannerTag {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--p-tertiary);
+  color: #fff;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bannerText p {
+  margin: 0;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.bannerText strong {
+  color: var(--p-fg);
+}
+
+.safety {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Actions ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.skip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.skip:hover {
+  color: var(--p-fg);
+}
+
+.continue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: var(--p-primary);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgb(0 97 148 / 0.2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.continue:hover {
+  background: var(--p-primary-container);
+  box-shadow: 0 8px 16px rgb(0 97 148 / 0.25);
+}
+
+.continue:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--p-primary-fixed);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .controlGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    gap: 32px;
+    padding: 20px;
+  }
+  .intro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+  .dietGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .constraints {
+    padding: 20px;
+  }
+  .banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .bannerHead {
+    justify-content: center;
+  }
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .skip {
+    justify-content: center;
+  }
+}
