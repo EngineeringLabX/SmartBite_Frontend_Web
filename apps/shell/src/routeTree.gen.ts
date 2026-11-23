@@ -28,6 +28,12 @@ import { Route as DeliveryEarningsIndexRouteImport } from './routes/delivery/ear
 import { Route as VendorMenuIndexRouteImport } from './routes/vendor/menu/index'
 import { Route as AppAuthenticatedCartIndexRouteImport } from './routes/_app/_authenticated/cart/index'
 import { Route as AppAuthenticatedProfileIndexRouteImport } from './routes/_app/_authenticated/profile/index'
+import { Route as AppAuthenticatedProfileSetupRouteRouteImport } from './routes/_app/_authenticated/profile/setup/route'
+import { Route as AppAuthenticatedProfileSetupIndexRouteImport } from './routes/_app/_authenticated/profile/setup/index'
+import { Route as AppAuthenticatedProfileSetupAllergiesIndexRouteImport } from './routes/_app/_authenticated/profile/setup/allergies/index'
+import { Route as AppAuthenticatedProfileSetupNutritionIndexRouteImport } from './routes/_app/_authenticated/profile/setup/nutrition/index'
+import { Route as AppAuthenticatedProfileSetupReviewIndexRouteImport } from './routes/_app/_authenticated/profile/setup/review/index'
+import { Route as AppAuthenticatedProfileSetupRoutineIndexRouteImport } from './routes/_app/_authenticated/profile/setup/routine/index'
 
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/_app',
@@ -124,6 +130,42 @@ const AppAuthenticatedProfileIndexRoute =
     path: '/profile/',
     getParentRoute: () => AppAuthenticatedRouteRoute,
   } as any)
+const AppAuthenticatedProfileSetupRouteRoute =
+  AppAuthenticatedProfileSetupRouteRouteImport.update({
+    id: '/profile/setup',
+    path: '/profile/setup',
+    getParentRoute: () => AppAuthenticatedRouteRoute,
+  } as any)
+const AppAuthenticatedProfileSetupIndexRoute =
+  AppAuthenticatedProfileSetupIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AppAuthenticatedProfileSetupRouteRoute,
+  } as any)
+const AppAuthenticatedProfileSetupAllergiesIndexRoute =
+  AppAuthenticatedProfileSetupAllergiesIndexRouteImport.update({
+    id: '/allergies/',
+    path: '/allergies/',
+    getParentRoute: () => AppAuthenticatedProfileSetupRouteRoute,
+  } as any)
+const AppAuthenticatedProfileSetupNutritionIndexRoute =
+  AppAuthenticatedProfileSetupNutritionIndexRouteImport.update({
+    id: '/nutrition/',
+    path: '/nutrition/',
+    getParentRoute: () => AppAuthenticatedProfileSetupRouteRoute,
+  } as any)
+const AppAuthenticatedProfileSetupReviewIndexRoute =
+  AppAuthenticatedProfileSetupReviewIndexRouteImport.update({
+    id: '/review/',
+    path: '/review/',
+    getParentRoute: () => AppAuthenticatedProfileSetupRouteRoute,
+  } as any)
+const AppAuthenticatedProfileSetupRoutineIndexRoute =
+  AppAuthenticatedProfileSetupRoutineIndexRouteImport.update({
+    id: '/routine/',
+    path: '/routine/',
+    getParentRoute: () => AppAuthenticatedProfileSetupRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
@@ -141,8 +183,14 @@ export interface FileRoutesByFullPath {
   '/admin/vendors/': typeof AdminVendorsIndexRoute
   '/delivery/earnings/': typeof DeliveryEarningsIndexRoute
   '/vendor/menu/': typeof VendorMenuIndexRoute
+  '/profile/setup': typeof AppAuthenticatedProfileSetupRouteRouteWithChildren
   '/cart/': typeof AppAuthenticatedCartIndexRoute
   '/profile/': typeof AppAuthenticatedProfileIndexRoute
+  '/profile/setup/': typeof AppAuthenticatedProfileSetupIndexRoute
+  '/profile/setup/allergies/': typeof AppAuthenticatedProfileSetupAllergiesIndexRoute
+  '/profile/setup/nutrition/': typeof AppAuthenticatedProfileSetupNutritionIndexRoute
+  '/profile/setup/review/': typeof AppAuthenticatedProfileSetupReviewIndexRoute
+  '/profile/setup/routine/': typeof AppAuthenticatedProfileSetupRoutineIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
@@ -158,6 +206,11 @@ export interface FileRoutesByTo {
   '/vendor/menu': typeof VendorMenuIndexRoute
   '/cart': typeof AppAuthenticatedCartIndexRoute
   '/profile': typeof AppAuthenticatedProfileIndexRoute
+  '/profile/setup': typeof AppAuthenticatedProfileSetupIndexRoute
+  '/profile/setup/allergies': typeof AppAuthenticatedProfileSetupAllergiesIndexRoute
+  '/profile/setup/nutrition': typeof AppAuthenticatedProfileSetupNutritionIndexRoute
+  '/profile/setup/review': typeof AppAuthenticatedProfileSetupReviewIndexRoute
+  '/profile/setup/routine': typeof AppAuthenticatedProfileSetupRoutineIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -178,8 +231,14 @@ export interface FileRoutesById {
   '/admin/vendors/': typeof AdminVendorsIndexRoute
   '/delivery/earnings/': typeof DeliveryEarningsIndexRoute
   '/vendor/menu/': typeof VendorMenuIndexRoute
+  '/_app/_authenticated/profile/setup': typeof AppAuthenticatedProfileSetupRouteRouteWithChildren
   '/_app/_authenticated/cart/': typeof AppAuthenticatedCartIndexRoute
   '/_app/_authenticated/profile/': typeof AppAuthenticatedProfileIndexRoute
+  '/_app/_authenticated/profile/setup/': typeof AppAuthenticatedProfileSetupIndexRoute
+  '/_app/_authenticated/profile/setup/allergies/': typeof AppAuthenticatedProfileSetupAllergiesIndexRoute
+  '/_app/_authenticated/profile/setup/nutrition/': typeof AppAuthenticatedProfileSetupNutritionIndexRoute
+  '/_app/_authenticated/profile/setup/review/': typeof AppAuthenticatedProfileSetupReviewIndexRoute
+  '/_app/_authenticated/profile/setup/routine/': typeof AppAuthenticatedProfileSetupRoutineIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -199,8 +258,14 @@ export interface FileRouteTypes {
     | '/admin/vendors/'
     | '/delivery/earnings/'
     | '/vendor/menu/'
+    | '/profile/setup'
     | '/cart/'
     | '/profile/'
+    | '/profile/setup/'
+    | '/profile/setup/allergies/'
+    | '/profile/setup/nutrition/'
+    | '/profile/setup/review/'
+    | '/profile/setup/routine/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -216,6 +281,11 @@ export interface FileRouteTypes {
     | '/vendor/menu'
     | '/cart'
     | '/profile'
+    | '/profile/setup'
+    | '/profile/setup/allergies'
+    | '/profile/setup/nutrition'
+    | '/profile/setup/review'
+    | '/profile/setup/routine'
   id:
     | '__root__'
     | '/_app'
@@ -235,8 +305,14 @@ export interface FileRouteTypes {
     | '/admin/vendors/'
     | '/delivery/earnings/'
     | '/vendor/menu/'
+    | '/_app/_authenticated/profile/setup'
     | '/_app/_authenticated/cart/'
     | '/_app/_authenticated/profile/'
+    | '/_app/_authenticated/profile/setup/'
+    | '/_app/_authenticated/profile/setup/allergies/'
+    | '/_app/_authenticated/profile/setup/nutrition/'
+    | '/_app/_authenticated/profile/setup/review/'
+    | '/_app/_authenticated/profile/setup/routine/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -383,15 +459,87 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAuthenticatedProfileIndexRouteImport
       parentRoute: typeof AppAuthenticatedRouteRoute
     }
+    '/_app/_authenticated/profile/setup': {
+      id: '/_app/_authenticated/profile/setup'
+      path: '/profile/setup'
+      fullPath: '/profile/setup'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupRouteRouteImport
+      parentRoute: typeof AppAuthenticatedRouteRoute
+    }
+    '/_app/_authenticated/profile/setup/': {
+      id: '/_app/_authenticated/profile/setup/'
+      path: '/'
+      fullPath: '/profile/setup/'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupIndexRouteImport
+      parentRoute: typeof AppAuthenticatedProfileSetupRouteRoute
+    }
+    '/_app/_authenticated/profile/setup/allergies/': {
+      id: '/_app/_authenticated/profile/setup/allergies/'
+      path: '/allergies'
+      fullPath: '/profile/setup/allergies/'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupAllergiesIndexRouteImport
+      parentRoute: typeof AppAuthenticatedProfileSetupRouteRoute
+    }
+    '/_app/_authenticated/profile/setup/nutrition/': {
+      id: '/_app/_authenticated/profile/setup/nutrition/'
+      path: '/nutrition'
+      fullPath: '/profile/setup/nutrition/'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupNutritionIndexRouteImport
+      parentRoute: typeof AppAuthenticatedProfileSetupRouteRoute
+    }
+    '/_app/_authenticated/profile/setup/review/': {
+      id: '/_app/_authenticated/profile/setup/review/'
+      path: '/review'
+      fullPath: '/profile/setup/review/'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupReviewIndexRouteImport
+      parentRoute: typeof AppAuthenticatedProfileSetupRouteRoute
+    }
+    '/_app/_authenticated/profile/setup/routine/': {
+      id: '/_app/_authenticated/profile/setup/routine/'
+      path: '/routine'
+      fullPath: '/profile/setup/routine/'
+      preLoaderRoute: typeof AppAuthenticatedProfileSetupRoutineIndexRouteImport
+      parentRoute: typeof AppAuthenticatedProfileSetupRouteRoute
+    }
   }
 }
 
+interface AppAuthenticatedProfileSetupRouteRouteChildren {
+  AppAuthenticatedProfileSetupIndexRoute: typeof AppAuthenticatedProfileSetupIndexRoute
+  AppAuthenticatedProfileSetupAllergiesIndexRoute: typeof AppAuthenticatedProfileSetupAllergiesIndexRoute
+  AppAuthenticatedProfileSetupNutritionIndexRoute: typeof AppAuthenticatedProfileSetupNutritionIndexRoute
+  AppAuthenticatedProfileSetupReviewIndexRoute: typeof AppAuthenticatedProfileSetupReviewIndexRoute
+  AppAuthenticatedProfileSetupRoutineIndexRoute: typeof AppAuthenticatedProfileSetupRoutineIndexRoute
+}
+
+const AppAuthenticatedProfileSetupRouteRouteChildren: AppAuthenticatedProfileSetupRouteRouteChildren =
+  {
+    AppAuthenticatedProfileSetupIndexRoute:
+      AppAuthenticatedProfileSetupIndexRoute,
+    AppAuthenticatedProfileSetupAllergiesIndexRoute:
+      AppAuthenticatedProfileSetupAllergiesIndexRoute,
+    AppAuthenticatedProfileSetupNutritionIndexRoute:
+      AppAuthenticatedProfileSetupNutritionIndexRoute,
+    AppAuthenticatedProfileSetupReviewIndexRoute:
+      AppAuthenticatedProfileSetupReviewIndexRoute,
+    AppAuthenticatedProfileSetupRoutineIndexRoute:
+      AppAuthenticatedProfileSetupRoutineIndexRoute,
+  }
+
+const AppAuthenticatedProfileSetupRouteRouteWithChildren =
+  AppAuthenticatedProfileSetupRouteRoute._addFileChildren(
+    AppAuthenticatedProfileSetupRouteRouteChildren,
+  )
+
 interface AppAuthenticatedRouteRouteChildren {
+  AppAuthenticatedProfileSetupRouteRoute: typeof AppAuthenticatedProfileSetupRouteRouteWithChildren
   AppAuthenticatedCartIndexRoute: typeof AppAuthenticatedCartIndexRoute
   AppAuthenticatedProfileIndexRoute: typeof AppAuthenticatedProfileIndexRoute
 }
 
 const AppAuthenticatedRouteRouteChildren: AppAuthenticatedRouteRouteChildren = {
+  AppAuthenticatedProfileSetupRouteRoute:
+    AppAuthenticatedProfileSetupRouteRouteWithChildren,
   AppAuthenticatedCartIndexRoute: AppAuthenticatedCartIndexRoute,
   AppAuthenticatedProfileIndexRoute: AppAuthenticatedProfileIndexRoute,
 }

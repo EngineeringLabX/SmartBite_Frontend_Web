@@ -1,0 +1,376 @@
+/* Colours and type from the Culinary Intelligence design, scoped to the setup flow */
+.shell {
+  --p-bg: #f8f9ff;
+  --p-card: #ffffff;
+  --p-low: #eff4ff;
+  --p-container: #e5eeff;
+  --p-high: #dce9ff;
+  --p-highest: #d3e4fe;
+  --p-fg: #0b1c30;
+  --p-muted: #3f4850;
+  --p-outline: #707881;
+  --p-outline-variant: #bfc7d2;
+  --p-primary: #006194;
+  --p-primary-container: #007bb9;
+  --p-primary-fixed: #cce5ff;
+  --p-on-primary-fixed: #001d31;
+  --p-secondary: #565e74;
+  --p-secondary-container: #dae2fd;
+  --p-on-secondary-container: #5c647a;
+  --p-on-secondary-fixed: #131b2e;
+  --p-tertiary: #006947;
+  --p-tertiary-container: #00855b;
+  --p-tertiary-fixed: #6ffbbe;
+  --p-tertiary-fixed-dim: #4edea3;
+  --p-on-tertiary-fixed: #002113;
+  --p-error: #ba1a1a;
+  --p-error-container: #ffdad6;
+  --p-on-error-container: #93000a;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--p-bg);
+  color: var(--p-fg);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell button,
+.shell input {
+  font-family: inherit;
+}
+
+.shell a {
+  text-decoration: none;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(248 249 255 / 0.9);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.04);
+}
+
+.headerInner,
+.stepInner,
+.footerInner,
+.main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-inline: 48px;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1280px;
+  height: 64px;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--p-primary-container);
+  color: #fff;
+}
+
+.brandName {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.brandName em {
+  color: var(--p-primary);
+  font-style: normal;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.crumbSlash {
+  color: var(--p-outline-variant);
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px 4px 4px;
+  border-radius: 999px;
+  background: var(--p-low);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--p-primary);
+  color: #fff;
+}
+
+.exit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.exit:hover {
+  color: var(--p-primary);
+}
+
+/* ---------- Stage stepper ---------- */
+
+.stepBar {
+  background: var(--p-card);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.03);
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.step + .step::before {
+  content: '›';
+  margin-right: 8px;
+  color: var(--p-outline-variant);
+}
+
+.stepLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  color: inherit;
+}
+
+a.stepLink:hover {
+  background: var(--p-low);
+  color: var(--p-primary);
+}
+
+.stepActive {
+  color: var(--p-primary);
+}
+
+.stepDone {
+  color: var(--p-tertiary);
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--p-container);
+  color: var(--p-fg);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.stepActive .stepNumber {
+  background: var(--p-primary);
+  color: #fff;
+}
+
+.stepDone .stepNumber {
+  background: var(--p-tertiary);
+  color: #fff;
+}
+
+.progress {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.progress span {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--p-high);
+}
+
+.progress .progressOn {
+  background: var(--p-primary);
+}
+
+.progress .progressDone {
+  background: var(--p-tertiary);
+}
+
+/* ---------- Content & footer ---------- */
+
+.main {
+  flex: 1;
+  padding-block: 48px 40px;
+}
+
+.footer {
+  background: var(--p-low);
+}
+
+.footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 24px;
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.protocol {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.encrypted {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.lock {
+  color: var(--p-tertiary);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.footerLinks a {
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.footerLinks a:hover {
+  color: var(--p-primary);
+}
+
+@media (max-width: 900px) {
+  .crumb,
+  .account {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerInner,
+  .stepInner,
+  .footerInner,
+  .main {
+    padding-inline: 16px;
+  }
+  .main {
+    padding-block: 24px;
+  }
+  .step + .step::before {
+    display: none;
+  }
+}

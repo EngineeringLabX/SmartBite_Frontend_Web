@@ -1,0 +1,945 @@
+/* Stage 3 styles. Colour tokens (--p-*) are defined on SetupShell; card, intro and actions come from setup.module.css */
+
+.primaryText { color: var(--p-primary); }
+.tertiaryText { color: var(--p-tertiary); }
+.mutedText { color: var(--p-muted); }
+
+/* Macro colours: protein = primary, fats = secondary, net carbs = primary container */
+.fill-protein { background: var(--p-primary); }
+.fill-fat { background: var(--p-secondary); }
+.fill-carbs { background: var(--p-primary-container); }
+.text-protein { color: var(--p-primary); }
+.text-fat { color: var(--p-secondary); }
+.text-carbs { color: var(--p-primary-container); }
+.stroke-protein { stroke: var(--p-primary); }
+.stroke-fat { stroke: var(--p-secondary); }
+.stroke-carbs { stroke: var(--p-primary-container); }
+
+/* ---------- Phase line & intro ---------- */
+
+.phase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: -16px;
+}
+
+.phaseText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.phaseText strong {
+  color: var(--p-primary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.phaseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--p-outline-variant);
+}
+
+.aiChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--p-low);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  color: var(--p-primary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.modelChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: var(--p-low);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Presets ---------- */
+
+.presets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.presetsTitle {
+  margin: 0;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.reset {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--p-primary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.preset {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--p-low);
+  color: var(--p-fg);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.preset strong {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.preset span {
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.preset:hover {
+  background: var(--p-container);
+}
+
+.preset:hover strong {
+  color: var(--p-primary);
+}
+
+.presetOn,
+.presetOn:hover {
+  background: var(--p-primary);
+  box-shadow: 0 4px 12px rgb(0 97 148 / 0.25);
+}
+
+.presetOn strong,
+.presetOn:hover strong {
+  color: #fff;
+}
+
+.presetOn span {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.preset:focus-visible,
+.reset:focus-visible {
+  outline: 2px solid var(--p-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- Panels ---------- */
+
+.bento {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  margin: 0;
+  padding: 24px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--p-low);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.panelNote {
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.panelHint {
+  margin: -8px 0 0;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* ---------- Calorie target ---------- */
+
+.rangeChip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.calorieRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.calorieValue {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.calorieValue strong {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.calorieValue span {
+  color: var(--p-muted);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.nudger {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.nudger span {
+  padding: 0 12px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.nudger button,
+.macroAdjust button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--p-fg);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.nudger button:hover:not(:disabled),
+.macroAdjust button:hover:not(:disabled) {
+  background: var(--p-container);
+}
+
+.nudger button:disabled,
+.macroAdjust button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.nudger button:focus-visible,
+.macroAdjust button:focus-visible {
+  outline: 2px solid var(--p-primary);
+  outline-offset: 1px;
+}
+
+.calorieSlider {
+  width: 100%;
+  margin: 8px 0 0;
+  accent-color: var(--p-primary);
+  cursor: pointer;
+}
+
+.sliderScale {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: -8px;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Macro distribution ---------- */
+
+.splitBar {
+  display: flex;
+  gap: 2px;
+  height: 12px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--p-container);
+  overflow: hidden;
+}
+
+.splitBar span {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.macroGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.macroCard,
+.mealCard {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.macroHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.macroName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.percentChip,
+.shareChip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--p-low);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+.macroGrams,
+.mealKcal {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.macroGrams strong {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.macroGrams span,
+.mealKcal span {
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.macroNote {
+  margin-top: 4px;
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.macroAdjust {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.macroAdjust button {
+  width: 28px;
+  height: 28px;
+  background: var(--p-low);
+}
+
+.autoBalanced {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 28px;
+  margin-top: 8px;
+  color: var(--p-outline);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+/* ---------- Energy breakdown ---------- */
+
+.energy {
+  align-items: stretch;
+}
+
+.donut {
+  position: relative;
+  width: 176px;
+  height: 176px;
+  margin: 0 auto;
+}
+
+.donut svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut circle {
+  transition: stroke-dasharray 0.3s, stroke-dashoffset 0.3s;
+}
+
+.donutCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.donutLabel {
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.donutCenter strong {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.donutStatus {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.statusDeficit { color: var(--p-primary); }
+.statusSurplus { color: #b45309; }
+
+.donutLegend {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--p-card);
+  text-align: center;
+}
+
+.donutLegend div {
+  flex: 1;
+}
+
+.donutLegend div + div {
+  border-left: 1px solid var(--p-container);
+}
+
+.donutLegend dt {
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.donutLegend dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+/* ---------- Clinical focus ---------- */
+
+.focusList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.focusItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--p-card);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.focusItem:hover {
+  background: var(--p-container);
+}
+
+.focusItem input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  accent-color: var(--p-primary);
+}
+
+.focusLabel {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.focusText {
+  display: block;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* ---------- Meal split ---------- */
+
+.mealGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mealCard {
+  background: var(--p-low);
+}
+
+.shareChip {
+  border-radius: 4px;
+  background: var(--p-card);
+}
+
+.mealKcal strong {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.mealMacros {
+  margin: 8px 0 0;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.mealTrack {
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: var(--p-container);
+  overflow: hidden;
+}
+
+.mealTrack span {
+  display: block;
+  height: 100%;
+  background: var(--p-primary);
+}
+
+/* ---------- AI tip ---------- */
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--p-low);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.tipIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--p-primary);
+  color: #fff;
+  box-shadow: 0 2px 6px rgb(0 97 148 / 0.25);
+}
+
+.tipHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-bottom: 2px;
+}
+
+.tipHead strong {
+  color: var(--p-primary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.tipHead span {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--p-container);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+.tip p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.tip p strong {
+  font-weight: 600;
+}
+
+/* Amber caution styling from the design system */
+.tipWarning {
+  background: #fef3c7;
+  box-shadow: inset 0 0 0 1px #fcd34d;
+}
+
+.tipWarning .tipIcon {
+  background: #f59e0b;
+  box-shadow: none;
+}
+
+.tipWarning .tipHead strong {
+  color: #b45309;
+}
+
+.tipWarning .tipHead span {
+  background: #fff;
+  color: #b45309;
+}
+
+.tipAction {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #b45309;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tipAction:hover {
+  background: #92400e;
+}
+
+/* ---------- Meal ideas ---------- */
+
+.screened {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--p-low);
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+.ideaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.idea {
+  border-radius: 16px;
+  background: var(--p-low);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.idea:hover {
+  box-shadow: 0 4px 12px rgb(2 132 199 / 0.1);
+}
+
+.ideaArt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 128px;
+  background: linear-gradient(135deg, var(--p-primary-fixed), var(--p-container) 60%, rgb(111 251 190 / 0.35));
+  color: var(--p-primary);
+}
+
+.ideaTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.9);
+  color: var(--p-primary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+.ideaBody {
+  padding: 14px;
+}
+
+.ideaBody h3 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ideaBody span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--p-tertiary);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+/* ---------- Actions ---------- */
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--p-low);
+  color: var(--p-fg);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.back:hover {
+  background: var(--p-container);
+}
+
+.forward {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.draft {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.draft:hover {
+  color: var(--p-fg);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .presetGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mealGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .phase {
+    margin-bottom: -8px;
+  }
+  .presetGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .panel {
+    padding: 20px;
+  }
+  .calorieValue strong {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .macroGrid,
+  .mealGrid,
+  .ideaGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sliderScale span:nth-child(2) {
+    display: none;
+  }
+  .forward {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
